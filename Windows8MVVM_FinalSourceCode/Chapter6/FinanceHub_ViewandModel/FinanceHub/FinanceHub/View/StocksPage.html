@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>StocksPage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    
+    <link href="StocksPage.css" rel="stylesheet" />
+    <script src="StocksPage.js"></script>
+</head>
+<body>
+<!-- This template is used to display each item in the ListView declared below. -->
+    <div class="itemtemplate" data-win-control="WinJS.Binding.Template">
+       <div >
+           <h2 style="color:#4E6485"></h2>
+           <div class="itemtext">Open</div>
+           <div style="margin-left:85px;font-size:15pt;color:#6a7bba"></div>
+           <div class="itemtext" >Change</div>
+           <div style="margin-left:85px;font-size:15pt;" >
+           <div></div></div>
+           <div style="float: left;margin-left:15px;margin-top:15px">
+           <img style="height:25px" /></div>  
+           <div style="margin-left:85px;margin-top:10px;font-size:20pt;color:#759CC8"></div>          
+       </div>
+    </div>
+
+
+    <div class="StocksPage fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled></button>
+                <img src="..\\images\AppLogo.png" 
+        style="height:80px;width:80px;margin-left:110px;margin-top:40px" />
+            <h1 class="titlearea win-type-ellipsis" style="margin-left:90px">
+                <span class="pagetitle">Finance Hub</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+    <div class="itemslist" 
+            data-win-control="WinJS.UI.ListView" 
+            data-win-options="{ selectionMode: 'none'}"></div>
+
+        </section>
+    </div>
+</body>
+</html>

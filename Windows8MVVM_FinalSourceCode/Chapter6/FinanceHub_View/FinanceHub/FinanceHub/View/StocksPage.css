@@ -1,0 +1,25 @@
+﻿.StocksPage .itemslist .win-horizontal.win-viewport .win-surface {
+    margin-bottom: 60px;
+    margin-left: 115px;
+    margin-top: 7px;
+}
+
+.StocksPage .itemslist {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+}
+
+.StocksPage .itemslist .win-item {
+    background-color:#fff;
+    padding:15px;
+    height: 130px;
+    width: 180px;
+}
+
+.StocksPage .itemtext {
+ font-size:15pt;
+ float: left;
+ color:#808080;
+}

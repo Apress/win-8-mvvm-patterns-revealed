@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>FinanceHub</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- FinanceHub references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+    <script src="/js/navigator.js"></script>
+</head>
+<body>
+    <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/View/StocksPage.html'}"></div>
+    <div id="appbar" data-win-control="WinJS.UI.AppBar" style="background-color:#9EA7B1">
+        <button data-win-control="WinJS.UI.AppBarCommand" 
+            data-win-options=
+                "{id:'cmdAdd',label:'Add',icon:'add',section:'global',tooltip:'Add', 
+                    type:'flyout', flyout:'addStockFlyout'}">
+        </button>
+        <button data-win-control="WinJS.UI.AppBarCommand" 
+            data-win-options=
+                "{id:'cmdDelete',label:'Remove',icon:'remove',section:'global',tooltip:'Delete', 
+                    type:'flyout', flyout:'removeStockFlyout'}" >
+        </button>
+    </div>
+    <div id="addStockFlyout" data-win-control="WinJS.UI.Flyout" >
+        <div id="addStockFlyoutMessage"></div>
+        <input id="addStockText" placeholder="Enter a symbol (e.g, MSFT)" /><br /><br />
+        <button id="addStockButton" style="color:#fff">Add</button><br /><br />
+    </div>
+    <div id="removeStockFlyout" data-win-control="WinJS.UI.Flyout" data-win-options="{width:'wide'}" >
+        <table>   
+            <tbody>
+                <tr>
+                    <td >
+                        <input type="checkbox"/>
+                         <span></span>
+                    </td>
+                </tr>    
+            </tbody>
+        </table>
+        <button id="Button1" style="color:#fff">Remove Selected</button><br /><br />
+    </div>
+
+
+    <!-- <div id="appbar" data-win-control="WinJS.UI.AppBar">
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmd', label:'Command', icon:'placeholder'}"></button>
+    </div> -->
+</body>
+</html>

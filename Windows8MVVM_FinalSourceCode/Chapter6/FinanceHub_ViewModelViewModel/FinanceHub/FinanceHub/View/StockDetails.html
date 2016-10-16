@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>StockDetails</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    
+    <link href="StockDetails.css" rel="stylesheet" />
+    <script src="StockDetails.js"></script>
+
+    <!--Reference to model and view model js files -->
+   	<script src="/Common/Converters.js"></script>
+    <script src="/Model/Stock.js"></script>
+    <script src="/ViewModel/StocksPageViewModel.js"></script>
+
+</head>
+<body>
+    <div class="itemtemplate" data-win-control="WinJS.Binding.Template">
+         <div>
+           <h2 data-win-bind="textContent:Symbol" style="color:#4E6485"></h2>
+           <div style="font-size:15pt;float: left; color:#808080">Open</div>
+           <div style="margin-left:85px;font-size:15pt;color:#6a7bba" data-win-bind="innerText:OpenPrice"></div>
+           <div style="font-size:15pt;float: left; color:#808080">Change</div>
+           <div style="margin-left:85px;font-size:15pt;" data-win-bind="style.color:Change FinanceHub.Converters.ChangeColorConverter"><div data-win-bind="innerText:Change"></div></div>
+         </div>
+    </div>
+
+    <div class="StockDetails fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Finance Hub</span>
+            </h1>
+        </header>
+            <div class="itemlistsection">
+                <div class="itemlist" id="itemlistView" data-win-control="WinJS.UI.ListView" data-win-options="{selectionMode: 'single', tapBehavior: 'toggleSelect', itemDataSource: FinanceHub.Data.Stocks.dataSource, oniteminvoked:FinanceHub.Command.StockSelectionChanged}"></div>
+            </div>
+            <div class="detailsection" id="stockInfoView" aria-atomic="true" aria-live="assertive">
+                <h2 class="headerStyle" >Stock Details</h2>
+                <div class="captionStyle">Current Price</div>
+                <div class="detailStyle" data-win-bind="innerText:CurrentPrice" ></div>
+                <div class="captionStyle">Open Price</div>
+                <div class="detailStyle" data-win-bind="innerText:OpenPrice" ></div>
+                <div class="captionStyle">Today High and Low Range</div>
+                <div class="detailStyle" data-win-bind="innerText:DaysRange"></div>
+                <div class="captionStyle">52 Weeks High and Low Range</div>
+                <div class="detailStyle" data-win-bind="innerText:Range52Week"></div>
+            </div> 
+    </div>
+</body>
+</html>

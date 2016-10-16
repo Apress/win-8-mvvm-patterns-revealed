@@ -1,0 +1,89 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FinanceHub.Common">
+    
+    <!--Color resources-->
+    <Color x:Key="AppPurpleColor">#FF585A8E</Color>
+    <Color x:Key="AppLightPurpleColor">#6a7bba</Color>
+    
+    <!--Custom resources-->
+    <SolidColorBrush x:Key="ApplicationTitleColorBrush" Color="{StaticResource AppLightPurpleColor}" />
+    <SolidColorBrush x:Key="StockTilesBackgroundBrush" Color="#f8f5f5"/>
+    <SolidColorBrush x:Key="StockDetailForegroundBrush" Color="DarkBlue" />
+    <SolidColorBrush x:Key="StockDetailLightBlueForegroundBrush" Color="#759CC8" />
+    <SolidColorBrush x:Key="StockChangePositiveForegroundBrush" Color="DarkGreen" />
+    <SolidColorBrush x:Key="StockChangeNegativeForegroundBrush" Color="DarkRed" />
+    <SolidColorBrush x:Key="StockCaptionBrush" Color="DarkGray" />
+
+    <!--Custom Styles -->
+    <Style x:Key="DetailTextStyle" TargetType="TextBlock" >
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource StockDetailForegroundBrush}"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
+    <Style x:Key="CaptionTextStyle" TargetType="TextBlock" >
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
+    <Style x:Key="HeaderTextStyle" TargetType="TextBlock" BasedOn="{StaticResource CaptionTextStyle}" >
+        <Setter Property="Foreground" Value="{StaticResource ApplicationTitleColorBrush}"/>
+        <Setter Property="FontSize" Value="26"/>
+    </Style>
+ 
+    <!--Theme overrides-->
+    <SolidColorBrush x:Key="AppBarBackgroundThemeBrush" Color="#9ea7b1" />
+    <SolidColorBrush x:Key="AppBarBorderThemeBrush" Color="#93a8c8" />
+    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#B3BDE1"/>
+    <SolidColorBrush x:Key="ProgressBarIndeterminateForegroundThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    <SolidColorBrush x:Key="ComboBoxItemSelectedBackgroundThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    <SolidColorBrush x:Key="ComboBoxItemSelectedForegroundThemeBrush" Color="White" />
+    <SolidColorBrush x:Key="ComboBoxItemSelectedPointerOverBackgroundThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    <SolidColorBrush x:Key="ComboBoxSelectedBackgroundThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    <SolidColorBrush x:Key="ComboBoxSelectedPointerOverBackgroundThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    <SolidColorBrush x:Key="ListViewItemPlaceholderBackgroundThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush" Color="{StaticResource AppPurpleColor}" />
+    
+<!--DateTemplate for different pages of application-->
+    <DataTemplate x:Key="StockTilesTemplate">
+        <Border BorderBrush="{StaticResource AppBarBorderThemeBrush}" BorderThickness="2">
+            <Grid Background="{StaticResource StockTilesBackgroundBrush}"  Height="155" Width="220">
+                <TextBlock Foreground="{StaticResource StockDetailForegroundBrush}"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Symbol}" VerticalAlignment="Top" Margin="10,10,0,0" Height="32" Width="200" FontSize="24" />
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CurrentPrice}" VerticalAlignment="Top" Margin="60,96,0,0" Height="51" Width="151" FontSize="42" Foreground="{StaticResource StockDetailLightBlueForegroundBrush}" />
+                <Path Data="M211,23" Fill="#FFBF2B00" HorizontalAlignment="Left" Height="0" Margin="211,23,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="0"/>
+                <Path Data="M141,31 L179,31 L160,56" Fill="#FFBF2B00" HorizontalAlignment="Left" Height="18.092" Margin="10,113.908,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="27.5" Visibility="Collapsed"/>
+                <Path Data="M141,31 L179,31 L160,56" Fill="#FF108104" HorizontalAlignment="Left" Height="18.092" Margin="10,120.908,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="27.5" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <CompositeTransform Rotation="180"/>
+                    </Path.RenderTransform>
+                </Path>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" Margin="10.5,47,0,0" FontSize="18.667" Foreground="DarkGray"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding OpenPrice}" VerticalAlignment="Top" Margin="98.5,47,0,0" FontSize="18.667" Foreground="#6a7bba" Width="111.5"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Change" VerticalAlignment="Top" Margin="10.5,74,0,0" Foreground="{StaticResource StockCaptionBrush}" FontSize="18.667" RenderTransformOrigin="0.666999995708466,0.455000013113022"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Change}" VerticalAlignment="Top" Margin="98.5,74,0,0" FontSize="18.667" Foreground="{StaticResource StockChangePositiveForegroundBrush}" Width="111.5"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate x:Key="StockListTemplate">
+        <Border BorderBrush="{StaticResource AppBarBorderThemeBrush}" BorderThickness="2">
+            <Grid Background="#f8f5f5"  Height="110" Width="220">
+                <TextBlock Foreground="{StaticResource StockDetailForegroundBrush}"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Symbol}" VerticalAlignment="Top" Margin="10,10,0,0" Height="32" Width="200" FontSize="24" />
+                <Path Data="M211,23" Fill="#FFBF2B00" HorizontalAlignment="Left" Height="0" Margin="211,23,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="0"/>
+                <Path Data="M141,31 L179,31 L160,56" Fill="#FFBF2B00" HorizontalAlignment="Left" Height="18.092" Margin="10,113.908,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="27.5" Visibility="Collapsed"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Open" VerticalAlignment="Top" Margin="10.5,47,0,0" FontSize="18.667" Foreground="{StaticResource StockCaptionBrush}"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding OpenPrice}" VerticalAlignment="Top" Margin="98.5,47,0,0" FontSize="18.667" Foreground="{StaticResource StockDetailLightBlueForegroundBrush}" Width="111.5"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Change" VerticalAlignment="Top" Margin="10.5,74,0,0" Foreground="{StaticResource StockCaptionBrush}" FontSize="18.667" RenderTransformOrigin="0.666999995708466,0.455000013113022"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Change}" VerticalAlignment="Top" Margin="98.5,74,0,0" FontSize="18.667" Foreground="{StaticResource StockChangePositiveForegroundBrush}" Width="111.5"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
+    
+</ResourceDictionary>
